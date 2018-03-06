@@ -14,10 +14,13 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
+import {
+
+} from 'reactstrap';
 
 import WeatherDisplay from 'components/WeatherDisplay.jsx';
 import WeatherForm from 'components/WeatherForm.jsx';
-import {getWeather} from 'api/open-weather-map.js';
+import {getWeather, cancelWeather} from 'api/open-weather-map.js';
 
 import './weather.css';
 
@@ -106,7 +109,7 @@ export default class Today extends React.Component {
     }
 
     notifyUnitChange(unit) {
-        if (this.props.units !== unit) {
+        if (this.props.unit !== unit) {
             this.props.onUnitChange(unit);
         }
     }

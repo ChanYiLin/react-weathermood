@@ -32,13 +32,15 @@ export default class Main extends React.Component {
         this.handleUnitChange = this.handleUnitChange.bind(this);
     }
 
+    //reactstrap@next : 
+    //  expand-{sm|md|lg|xl}決定在哪個斷點以上就出現漢堡式選單
     render() {
         return (
             <Router>
                 <div className={`main bg-faded ${this.state.group}`}>
                     <div className='container'>
-                        <Navbar color="faded" light toggleable>
-                            <NavbarToggler right onClick={this.handleNavbarToggle}/>
+                        <Navbar color="faded" light expand="md"> 
+                            <NavbarToggler onClick={this.handleNavbarToggle}/>
                             <NavbarBrand className='text-info' href="/">WeatherMood</NavbarBrand>
                             <Collapse isOpen={this.state.navbarToggle} navbar>
                                 <Nav navbar>
@@ -65,7 +67,9 @@ export default class Main extends React.Component {
         );
     }
 
-    handleNavbarToggle() {
+    // when click on the Nav toggle, the navbarToggle state will change
+    // and the Collapse isOpen will get the new state.
+    handleNavbarToggle() {  
         this.setState((prevState, props) => ({
             navbarToggle: !prevState.navbarToggle
         }));
